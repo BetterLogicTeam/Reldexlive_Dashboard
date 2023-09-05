@@ -410,7 +410,7 @@ td {
     .card {
         /*float: left;
             width: 1360px;*/
-        overflow: scroll;
+        /* overflow: scroll; */ 
     }
 
     content-page {

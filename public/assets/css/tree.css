@@ -393,8 +393,8 @@ tr.fgtybmd td {
 
 @media screen and (min-width:320px) and (max-width:800px) {
     .card {
-        float: left;
-        width: 1360px;
+        /* float: left; */
+        /* width: 1360px; */
     }
 
     content-page {
