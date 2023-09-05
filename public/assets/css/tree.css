@@ -402,6 +402,11 @@ tr.fgtybmd td {
         overflow: scroll !important;
     }
 
+    .CBHhdr{
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
  
 }
 .form_set {

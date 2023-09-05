@@ -266,6 +266,9 @@ body {
     .resetBtn {
         justify-content: space-between;
     }
+    .ActvHdR{
+        max-width: 100% !important;
+    }
 }
 
 .numbtn button {
