@@ -14204,8 +14204,8 @@ g[aria-describedby="id-22-description"] {
 
 .content-page {
     overflow: hidden;
-    margin-left: 46px;
-    padding: 103px 12px 0px;
+    /* margin-left: 46px;
+    padding: 103px 12px 0px; */
     /*background-image: url('../images/bg1.gif');*/
     min-height: 100vh;
     -webkit-transition: all 0.3s ease-in-out;   
@@ -14237,7 +14237,7 @@ g[aria-describedby="id-22-description"] {
 @media (max-width: 1299px) {
   .content-page {
     margin-left: 0;
-    padding: 100px 15px 0; } }
+    padding: 0; } }
 
 @media (max-width: 991px) {
   .content-page {
@@ -25301,7 +25301,7 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #1d1e2ea1;
+    background-color: #0c0d1ad9;
     
 }
 

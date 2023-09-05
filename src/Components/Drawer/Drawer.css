@@ -1,0 +1,64 @@
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root{
+    background-color: #050b1c !important;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    background-color: #050b1c !important;
+    color: white !important;
+}
+
+.css-wa5fuu-MuiListItemIcon-root{
+    color: white !important;
+}
+
+.css-1191obr-MuiPaper-root-MuiAppBar-root{
+    background-color: #050b1c !important;
+}
+
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
+    color: white !important;
+}
+
+.css-1ddsiuw-MuiListItemIcon-root{
+    color: white !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root .icn{
+    width: 2.5em !important;
+    height: 2.5em !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root{
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{
+    padding: 0 !important;
+}
+
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+    margin: 0 !important;
+}
+
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{
+    min-height: 0 !important;
+}
+
+.css-yw020d-MuiAccordionSummary-expandIconWrapper{
+    color: white !important;
+}
+
+.css-cvyseg-MuiPaper-root-MuiAppBar-root{
+    background-color: #050b1c !important;
+}
+.MuiPaper-root{
+    background-color: #050b1c !important;
+
+}
+
+@media screen and (max-width: 800px) {
+    .main_drw{
+        /* display: none !important; */
+    }
+}
