@@ -19,8 +19,8 @@ function BuyOnline_Fund() {
                     <div id="tblwithdrawl">
                       <div id="UpdatePanel1">
                         <div>
-                          <table className="table table-stripped">
-                            <tbody>
+                          <table className="table table-stripped buyOnlin">
+                            <tbody className="">
                               <form
                                 action="/User/onlineFundPost"
                                 method="post"

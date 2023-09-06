@@ -435,7 +435,7 @@ const Canva = () => {
                     </div>
                   </div>
                   <div
-                    className="text_color mb_1"
+                    className="text_color mb_1 text-white"
                     style={{ fontSize: "medium" }}
                   >
                     You have earned Total 1.25 % (63 BUSD) out of 500 % (5000.00

@@ -1,0 +1,36 @@
+.accordion-button:not(.collapsed){
+    color: white !important;
+    background-color: #121626 !important;
+}
+
+.accordion{
+    --bs-accordion-bg: #121626 !important;
+    --bs-accordion-color: white !important;
+    --bs-accordion-border-color: none !important;
+}
+
+.accordion-button::after{
+    background-image: none !important;
+    content: "\002B";
+    font-size: 2rem;
+    bottom: 1rem;
+    margin-bottom: 15px;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: none !important;
+    content: "\2212";
+    font-size: 2rem;
+    right: 1rem;
+    margin-top: 20px;
+}
+
+.accordion-button{
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+
+.accordion-button:focus{
+    --bs-accordion-btn-focus-border-color: transparent !important;
+}
+

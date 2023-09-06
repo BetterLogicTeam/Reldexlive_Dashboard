@@ -9,7 +9,7 @@ function Activation() {
             <div className="col-xl-12">
               <div className="row">
                 <div className="col-md-4"></div>
-                <div className="col-md-5">
+                <div className="col-md-6">
                   <div className="modal-dialog" role="document">
                     <div className="modal-content">
                       <div className="modal-header">

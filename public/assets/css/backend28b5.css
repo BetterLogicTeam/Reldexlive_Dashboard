@@ -25296,14 +25296,14 @@ label[for="customRadio7"], label[for="customRadio6"] {
     opacity: inherit;
 }
 
-body::before {
+/* body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
     background-color: #0c0d1ae8;
     
-}
+} */
 
 .widget-content {
     background-color: #1d1e2e;

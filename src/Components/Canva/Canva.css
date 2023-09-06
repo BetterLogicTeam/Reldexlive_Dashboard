@@ -6,9 +6,9 @@
     background-color: #050b1c;
 }
 
-@media (max-width: 991px){ img {
+/* @media (max-width: 991px){ img {
     height: 40px;
-}}
+}} */
 
 .navbar-light .navbar-toggler{
     background-color: white !important;

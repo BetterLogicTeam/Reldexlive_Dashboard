@@ -2,12 +2,14 @@ import React from "react";
 
 function Withdrawal_form() {
   return (
-    <div>
+    <div >
+      <div className="Main_Width">
+
       <div className="content-page">
         <div className="content">
           <div className="container">
-            <div className="row">
-              <div className="col-md-8">
+            <div className="row justify-content-center">
+              <div className="col-lg-8">
                 <div className="widget-content rowmb2">
                   <div className="row">
                     <div className="col-md-12">
@@ -110,6 +112,7 @@ function Withdrawal_form() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

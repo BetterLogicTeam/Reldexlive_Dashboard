@@ -1,0 +1,7 @@
+@media (max-width: 700px) and (min-width: 900px) {
+    .emg_flx{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

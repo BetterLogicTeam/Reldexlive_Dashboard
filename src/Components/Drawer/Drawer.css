@@ -80,8 +80,108 @@
     }
 }
 
-@media (min-width:993px)  {
-    .Offcanvas_res{
-        display: none;
+@media (min-width:993px) {
+    .Offcanvas_res {
+        display: none !important;
     }
+}
+.buyOnlin tbody  tr td{
+    border-color: inherit;
+    border-style: none !important;
+    border-width: 0;
+}
+
+.table {
+
+    --bs-table-bg: transparent !important;
+    --bs-table-color: #fff !important;
+
+}
+
+.card-title {
+    color: #fff !important;
+}
+
+
+.Main_Width{
+    /* border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.card_Overflowww{
+    width: 1100px;
+}
+
+@media screen and (max-width:992px) {
+    .card_Overflowww{
+        width: 100% !important;
+    } 
+}
+
+.css-67l5gl{
+    color: white !important;
+}
+
+.css-gcf7nn{
+    color: white !important;
+}
+.css-3wucx{
+    color: white !important;
+}
+.css-kue437{
+    color: white !important;
+}
+
+.css-1yxmbwk{
+    color: white !important;
+}
+.css-1fx8m19{
+    color: white !important;
+}
+
+.css-kue437 {
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    color: white !important;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    min-width: 0px;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 8px 20px;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    min-height: 48px;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.MuiListItemIcon-root{
+    color: #fff !important;
+    font-size: 31px !important;
+}
+.css-vubbuv {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 2rem !important;
 }

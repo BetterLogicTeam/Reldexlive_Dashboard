@@ -29,13 +29,37 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 // import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { LiaCoinsSolid } from 'react-icons/lia';
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Container, Navbar } from "react-bootstrap";
-const drawerWidth = 320;
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Landing from "../Landing/Landing";
+import My_account from "../My_Profile/My_account";
+import Home from "../Home/Home";
+import Change_Password from "../My_Profile/Change_Password";
+import Change_TransactionPassword from "../My_Profile/Change_TransactionPassword";
+import Ecurrency_Details from "../My_Profile/Ecurrency_Details";
+import Activation from "../Activation/Activation";
+import Activation_history from "../Activation_history/Activation_history";
+import BuyOnline_Fund from "../BuyOnline_Fund/BuyOnline_Fund";
+import BuyFundOnlineHistory from "../BuyFundOnlineHistory/BuyFundOnlineHistory";
+import ReceivedFundHistory from "../ReceivedFundHistory/ReceivedFundHistory";
+import DirectIncome from "../DirectIncome/DirectIncome";
+import Roi_Income from "../ROI_Income/Roi_Income";
+import RoiLevelIncome from "../RoiLevelIncome/RoiLevelIncome";
+import Reward from "../Reward/Reward";
+import MyReferral from "../MyReferral/MyReferral";
+import LevelDetails from "../LevelDetails/LevelDetails";
+import MyTeam from "../MyTeam/MyTeam";
+import DirectlegBussiness from "../DirectlegBussiness/DirectlegBussiness";
+import Bonanza from "../Bonanza/Bonanza";
+import Withdrawal_form from "../Withdrawal_Form/Withdrawal_form";
+import WithdrawalHistory from "../WithdrawalHistory/WithdrawalHistory";
+import ContactSupportTable from "../ContactSupportTable/ContactSupportTable";
+const drawerWidth = 280;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -105,6 +129,7 @@ const Drawer = styled(MuiDrawer, {
 export default function MiniDrawer() {
   const [selectedOption, setSelectedOption] = React.useState(null);
 
+  let history = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -120,185 +145,216 @@ export default function MiniDrawer() {
     <Box sx={{ display: "flex" }} className="main_drw">
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-      {[false].map((expand) => (
-        <Navbar key={expand} expand={expand} className="navMMain Offcanvas_res">
-          <Container fluid>
-            <Navbar.Brand href="#">
-              <div className="iq-navbar-logo d-flex align-items-center justify-content-between">
-                <a href="index.html" className="header-logo">
-                  <img
-                    src="assets/images/logo.png"
-                    className="img-fluid rounded-normal light-logo"
-                    alt="logo"
-                  />
-                </a>
+        {[false].map((expand) => (
+          <Navbar
+            key={expand}
+            expand={expand}
+            className="navMMain Offcanvas_res"
+          >
+            <Container fluid>
+              <Navbar.Brand href="#">
+                <div className="iq-navbar-logo d-flex align-items-center justify-content-between">
+                  <a href="index.html" className="header-logo">
+                    <img
+                      src="assets/images/logo.png"
+                      className="img-fluid rounded-normal light-logo"
+                      alt="logo"
+                    />
+                  </a>
+                </div>
+              </Navbar.Brand>
+              <Navbar.Toggle
+                aria-controls={`offcanvasNavbar-expand-${expand}`}
+              />
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  RD332211
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      RD332212
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      RD332213
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      RD332214
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+              <Navbar.Offcanvas
+                id={`offcanvasNavbar-expand-${expand}`}
+                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                placement="end"
               >
-                RD332211
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    RD332212
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    RD332213
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    RD332214
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-              <div className="py-3"><HomeOutlinedIcon className="mr-2"/>Dashboard</div>
-              <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><PersonOutlineOutlinedIcon className="mr-2"/> Profile</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">My Account</li>
-                      <li className="mt-3">Change Password</li>
-                      <li className="mt-3">Change Transaction Password</li>
-                      <li className="mt-3">Ecurrency Details</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                    Offcanvas
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <div className="py-3 text-white">
+                    <HomeOutlinedIcon className="mr-2 text-white" />
+                    Dashboard
+                  </div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <PersonOutlineOutlinedIcon className="mr-2 text-white" /> Profile
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3 text-white">My Account</li>
+                        <li className="mt-3 text-white">Change Password</li>
+                        <li className="mt-3 text-white">Change Transaction Password</li>
+                        <li className="mt-3 text-white">Ecurrency Details</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Activation</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">Activation</li>
-                      <li className="mt-3">Activation/Upgrade History</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Activation
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">Activation</li>
+                        <li className="mt-3">Activation/Upgrade History</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Manage Fund</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">Buy Fund Online</li>
-                      <li className="mt-3">Buy Fund Online History</li>
-                      <li className="mt-3">Received Fund History</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Manage Fund
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">Buy Fund Online</li>
+                        <li className="mt-3">Buy Fund Online History</li>
+                        <li className="mt-3">Received Fund History</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><DescriptionOutlinedIcon className="mr-2"/>Income</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">Direct Income</li>
-                      <li className="mt-3">Roi Income</li>
-                      <li className="mt-3">Roi Level Income</li>
-                      <li className="mt-3">Reward</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <DescriptionOutlinedIcon className="mr-2 text-white" />
+                        Income
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">Direct Income</li>
+                        <li className="mt-3">Roi Income</li>
+                        <li className="mt-3">Roi Level Income</li>
+                        <li className="mt-3">Reward</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><PersonAddAltOutlinedIcon className="mr-2"/> My Team </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">My Referral</li>
-                      <li className="mt-3">Level Details</li>
-                      <li className="mt-3">My Team</li>
-                      <li className="mt-3">Direct leg Bussiness</li>
-                      <li className="mt-3">Bonanza</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <PersonAddAltOutlinedIcon className="mr-2 text-white" /> My Team{" "}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">My Referral</li>
+                        <li className="mt-3">Level Details</li>
+                        <li className="mt-3">My Team</li>
+                        <li className="mt-3">Direct leg Bussiness</li>
+                        <li className="mt-3">Bonanza</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Withdrawal</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">Withdrawal</li>
-                      <li className="mt-3">Withdrawal History</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Withdrawal
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">Withdrawal</li>
+                        <li className="mt-3">Withdrawal History</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Contact support </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">contactsupport</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Contact support{" "}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3">contactsupport</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
 
-                <div className="py-3"><ExitToAppIcon className="mr-2"/>Logout</div>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
+                  <div className="py-3">
+                    <ExitToAppIcon className="mr-2 text-white" />
+                    Logout
+                  </div>
+                </Offcanvas.Body>
+              </Navbar.Offcanvas>
+            </Container>
+          </Navbar>
+        ))}
         <Toolbar className="Toolbar_resp">
           <IconButton
             color="inherit"
@@ -323,7 +379,7 @@ export default function MiniDrawer() {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} className="Toolbar_resp" >
+      <Drawer variant="permanent" open={open} className="Toolbar_resp">
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -352,7 +408,10 @@ export default function MiniDrawer() {
               >
                 <HomeOutlinedIcon />
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+              <ListItemText
+                sx={{ opacity: open ? 1 : 0 }}
+                onClick={() => (handleDrawerClose(),history("/dashboard"))}
+              >
                 Dashboard
               </ListItemText>
             </ListItemButton>
@@ -386,10 +445,30 @@ export default function MiniDrawer() {
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">My Account</li>
-                      <li className="mt-3">Change Password</li>
-                      <li className="mt-3">Change Transaction Password</li>
-                      <li className="mt-3">Ecurrency Details</li>
+                      <li
+                        className="mt-3"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/My_Account"))}
+                      >
+                        My Account
+                      </li>
+                      <li
+                        className="mt-3"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/Change_Password"))}
+                      >
+                        Change Password
+                      </li>
+                      <li
+                        className="mt-3"
+                        onClick={() =>(handleDrawerClose(), history("/dashboard/Change_TransactionPassword"))}
+                      >
+                        Change Transaction Password
+                      </li>
+                      <li
+                        className="mt-3"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/Ecurrency_Details"))}
+                      >
+                        Ecurrency Details
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -421,19 +500,28 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Activation</Typography>
+                    <Typography className="text-white">Activation</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">Activation</li>
-                      <li className="mt-3">Activation/Upgrade History</li>
+                      <li
+                        className="mt-3 text-white "
+                        onClick={() => (handleDrawerClose(),history("/dashboard/Activation"))}
+                      >
+                        Activation
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() =>(handleDrawerClose(), history("/dashboard/Activation_history"))}
+                      >
+                        Activation/Upgrade History
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
               </ListItemText>
             </ListItemButton>
           </ListItem>
-
 
           <ListItem disablePadding sx={{ display: "block" }}>
             <ListItemButton
@@ -459,13 +547,28 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Manage Fund</Typography>
+                    <Typography className="text-white">Manage Fund</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">Buy Fund Online</li>
-                      <li className="mt-3">Buy Fund Online History</li>
-                      <li className="mt-3">Received Fund History</li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/BuyOnline_Fund"))}
+                      >
+                        Buy Fund Online
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/BuyFundOnlineHistory"))}
+                      >
+                        Buy Fund Online History
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/ReceivedFundHistory"))}
+                      >
+                        Received Fund History
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -497,21 +600,37 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Income</Typography>
+                    <Typography className="text-white">Income</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">Direct Income</li>
-                      <li className="mt-3">Roi Income</li>
-                      <li className="mt-3">Roi Level Income</li>
-                      <li className="mt-3">Reward</li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() =>(handleDrawerClose(), history("/dashboard/DirectIncome"))}
+                      >
+                        Direct Income
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/Roi_Income"))}
+                      >
+                        Roi Income
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/RoiLevelIncome"))}
+                      >
+                        Roi Level Income
+                      </li>
+                      <li className="mt-3 text-white" onClick={() =>(handleDrawerClose(), history("/dashboard/Reward"))}>
+                        Reward
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
               </ListItemText>
             </ListItemButton>
           </ListItem>
-
 
           <ListItem disablePadding sx={{ display: "block" }}>
             <ListItemButton
@@ -537,15 +656,34 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography> My Team </Typography>
+                    <Typography className="text-white"> My Team </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">My Referral</li>
-                      <li className="mt-3">Level Details</li>
-                      <li className="mt-3">My Team</li>
-                      <li className="mt-3">Direct leg Bussiness</li>
-                      <li className="mt-3">Bonanza</li>
+                      <li
+                        className="mt-3 text-white "
+                        onClick={() => (handleDrawerClose(),history("/dashboard/MyReferral"))}
+                      >
+                        My Referral
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/LevelDetails"))}
+                      >
+                        Level Details
+                      </li>
+                      <li className="mt-3 text-white" onClick={() => (handleDrawerClose(),history("/dashboard/MyTeam"))}>
+                        My Team
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() =>(handleDrawerClose(), history("/dashboard/DirectlegBussiness"))}
+                      >
+                        Direct leg Bussiness
+                      </li>
+                      <li className="mt-3 text-white" onClick={() => (handleDrawerClose(),history("/dashboard/Bonanza"))}>
+                        Bonanza
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -577,12 +715,22 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Withdrawal</Typography>
+                    <Typography className="text-white">Withdrawal</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">Withdrawal</li>
-                      <li className="mt-3">Withdrawal History</li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() =>(handleDrawerClose(), history("/dashboard/Withdrawal_form"))}
+                      >
+                        Withdrawal
+                      </li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/WithdrawalHistory"))}
+                      >
+                        Withdrawal History
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -614,11 +762,16 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography> Contact support </Typography>
+                    <Typography className="text-white"> Contact support </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
-                      <li className="mt-3">contactsupport</li>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (handleDrawerClose(),history("/dashboard/ContactSupportTable"))}
+                      >
+                        contactsupport
+                      </li>
                     </ul>
                   </AccordionDetails>
                 </Accordion>
@@ -643,282 +796,50 @@ export default function MiniDrawer() {
               >
                 <ExitToAppIcon />
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }}>
-                Logout
-              </ListItemText>
+              <ListItemText className="text-white" sx={{ opacity: open ? 1 : 0 }}>Logout</ListItemText>
             </ListItemButton>
           </ListItem>
         </List>
-        <Divider />
+        <Divider />           
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <div className="content-page ">
-          <div className="content">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="d-block align-items-center referralItem mb2">
-                    <div className="form-group">
-                      <h3>Referral Link</h3>
-                      <div className="input-group mb-0 bgss">
-                        <input
-                          type="text"
-                          id="MyValue"
-                          className="form-control"
-                        />
-                        <span
-                          text="button"
-                          onclick="addressCopy()"
-                          className="input-group-text"
-                        >
-                          <i className="fa fa-copy" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="container">
-                <div className="row mb_flx">
-                  <div className="col-lg-3">
-                    <a href="#">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                              <LiaCoinsSolid />
-                            </div>
-                            <h6>Current Package</h6>
-                          </div>
-                          <h5>8586</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/ActivationHistory">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Total Investment</h6>
-                          </div>
-                          <div>
-                            <h5>5868</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/myReferral">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Total Referral</h6>
-                          </div>
-                          <h5>2364</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/myTeam">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Total Team</h6>
-                          </div>
-                          <h5>9582</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/myTeam">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Total Business</h6>
-                          </div>
-                          <h5>8282</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/DirectIncome">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Direct Income</h6>
-                          </div>
-                          <h5>8585</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/roiIncome">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Daily Profit Income</h6>
-                          </div>
-                          <h5>8957</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/RoiLevelIncome">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Daily Profit Level Income</h6>
-                          </div>
-                          <h5>869</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/Rewardincome">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Reward Income</h6>
-                          </div>
-                          <h5>458</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="#">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Total Income</h6>
-                          </div>
-                          <h5>2423</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="/user/WithdrawHistory">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Withdrawal</h6>
-                          </div>
-                          <h5>3234</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-3">
-                    <a href="#">
-                      <div className="card cardItem">
-                        <div className="card-body">
-                          <div className="card_heading">
-                            <div className="iq-icon-box-2">
-                             <LiaCoinsSolid />
-                            </div>
-                            <h6>Net Income</h6>
-                          </div>
-                          <h5>535</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="container">
-                <div className="row mb_flx">
-                  <div className="col-md-12">
-                    <div className="prgs">
-                      <div id="myProgress">
-                        <div id="myBar" />
-                      </div>
-                    </div>
-                    <div
-                      className="text_color mb_1"
-                      style={{ fontSize: "medium" }}
-                    >
-                      You have earned Total 1.25 % (63 BUSD) out of 500 %
-                      (5000.00 BUSD) of total investment (1000.00 BUSD).
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="container">
-                <div className="row mb_flx">
-                  <div className="col-md-12">
-                    <div className="news_section">
-                      <h4 className="userdet">News</h4>
-                      <marquee
-                        direction="up"
-                        scrollamount={2}
-                        onmouseover="this.stop();"
-                        onmouseout="this.start();"
-                      >
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td style={{ color: "white" }}>
-                                Welcome To Reldexlive
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <td>Comming Soon..</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </marquee>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="loader" />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/My_Account" element={<My_account />} />
+          <Route path="/Change_Password" element={<Change_Password />} />
+          <Route
+            path="/Change_TransactionPassword"
+            element={<Change_TransactionPassword />}
+          />
+          <Route path="/Activation" element={<Activation />} />
+          <Route path="/Activation_history" element={<Activation_history />} />
+          <Route path="/BuyOnline_Fund" element={<BuyOnline_Fund />} />
+          <Route
+            path="/BuyFundOnlineHistory"
+            element={<BuyFundOnlineHistory />}
+          />
+          <Route
+            path="/ReceivedFundHistory"
+            element={<ReceivedFundHistory />}
+          />
+          <Route path="/DirectIncome" element={<DirectIncome />} />
+          <Route path="/Roi_Income" element={<Roi_Income />} />
+          <Route path="/RoiLevelIncome" element={<RoiLevelIncome />} />
+          <Route path="/Reward" element={<Reward />} />
+          <Route path="/MyReferral" element={<MyReferral />} />
+          <Route path="/LevelDetails" element={<LevelDetails />} />
+          <Route path="/MyTeam" element={<MyTeam />} />
+          <Route path="/DirectlegBussiness" element={<DirectlegBussiness />} />
+          <Route path="/Bonanza" element={<Bonanza />} />
+          <Route path="/Withdrawal_form" element={<Withdrawal_form />} />
+          <Route path="/WithdrawalHistory" element={<WithdrawalHistory />} />
+          <Route path="/Ecurrency_Details" element={<Ecurrency_Details />} />
+          <Route
+            path="/ContactSupportTable"
+            element={<ContactSupportTable />}
+          />
+        </Routes>
       </Box>
     </Box>
   );
