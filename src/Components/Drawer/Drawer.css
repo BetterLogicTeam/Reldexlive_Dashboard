@@ -1,72 +1,87 @@
-.css-19z1ozs-MuiPaper-root-MuiAppBar-root{
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root {
     background-color: #050b1c !important;
 }
 
-.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
     background-color: #050b1c !important;
     color: white !important;
 }
 
-.css-wa5fuu-MuiListItemIcon-root{
+.css-wa5fuu-MuiListItemIcon-root {
     color: white !important;
 }
 
-.css-1191obr-MuiPaper-root-MuiAppBar-root{
+.css-1191obr-MuiPaper-root-MuiAppBar-root {
     background-color: #050b1c !important;
 }
 
-.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
     color: white !important;
 }
 
-.css-1ddsiuw-MuiListItemIcon-root{
+.css-1ddsiuw-MuiListItemIcon-root {
     color: white !important;
 }
 
-.css-i4bv87-MuiSvgIcon-root .icn{
+.css-i4bv87-MuiSvgIcon-root .icn {
     width: 2.5em !important;
     height: 2.5em !important;
 }
 
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root{
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
     background-color: transparent !important;
     color: white !important;
 }
 
-.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
     padding: 0 !important;
 }
 
-.css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
     margin: 0 !important;
 }
 
-.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
     min-height: 0 !important;
 }
 
-.css-yw020d-MuiAccordionSummary-expandIconWrapper{
+.css-yw020d-MuiAccordionSummary-expandIconWrapper {
     color: white !important;
 }
 
-.css-cvyseg-MuiPaper-root-MuiAppBar-root{
+.css-cvyseg-MuiPaper-root-MuiAppBar-root {
     background-color: #050b1c !important;
 }
-.MuiPaper-root{
+
+.MuiPaper-root {
     background-color: #050b1c !important;
 
 }
 
 @media screen and (max-width: 800px) {
-    .main_drw{
+    /* .main_drw {
         display: none !important;
-    }
-    .mb_flx{
+    } */
+
+    .mb_flx {
         display: flex;
         flex-direction: column;
     }
 
-    .css-zxdg2z{
+    .css-zxdg2z {
         overflow-x: hidden !important;
+    }
+}
+
+@media screen and (max-width:992px) {
+
+    .Toolbar_resp {
+        display: none !important;
+    }
+}
+
+@media (min-width:993px)  {
+    .Offcanvas_res{
+        display: none;
     }
 }

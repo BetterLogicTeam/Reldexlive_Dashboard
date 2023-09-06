@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App" ng-app="MyApp">
       <Landing />
-      <Canva />
+      {/* <Canva /> */}
     </div>
   );
 }

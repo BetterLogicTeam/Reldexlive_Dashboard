@@ -32,50 +32,7 @@ const Canva = () => {
 
   return (
     <div className="canvaMain">
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-        <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography>Profile</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">My Account</li>
-                      <li className="mt-3">Change Password</li>
-                      <li className="mt-3">Change Transaction Password</li>
-                      <li className="mt-3">Ecurrency Details</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography>Activation</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ul>
-                      <li className="mt-3">Activation</li>
-                      <li className="mt-3">Activation/Upgrade History</li>
-                    </ul>
-                  </AccordionDetails>
-                </Accordion>
-        </Offcanvas.Body>
-      </Offcanvas> */}
+     
 
       {[false].map((expand) => (
         <Navbar key={expand} expand={expand} className="navMMain">

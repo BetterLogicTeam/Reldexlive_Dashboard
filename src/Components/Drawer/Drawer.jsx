@@ -33,7 +33,8 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { LiaCoinsSolid } from 'react-icons/lia';
-
+import Offcanvas from "react-bootstrap/Offcanvas";
+import { Container, Navbar } from "react-bootstrap";
 const drawerWidth = 320;
 
 const openedMixin = (theme) => ({
@@ -119,7 +120,186 @@ export default function MiniDrawer() {
     <Box sx={{ display: "flex" }} className="main_drw">
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+      {[false].map((expand) => (
+        <Navbar key={expand} expand={expand} className="navMMain Offcanvas_res">
+          <Container fluid>
+            <Navbar.Brand href="#">
+              <div className="iq-navbar-logo d-flex align-items-center justify-content-between">
+                <a href="index.html" className="header-logo">
+                  <img
+                    src="assets/images/logo.png"
+                    className="img-fluid rounded-normal light-logo"
+                    alt="logo"
+                  />
+                </a>
+              </div>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                RD332211
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    RD332212
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    RD332213
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    RD332214
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  Offcanvas
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+              <div className="py-3"><HomeOutlinedIcon className="mr-2"/>Dashboard</div>
+              <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><PersonOutlineOutlinedIcon className="mr-2"/> Profile</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">My Account</li>
+                      <li className="mt-3">Change Password</li>
+                      <li className="mt-3">Change Transaction Password</li>
+                      <li className="mt-3">Ecurrency Details</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Activation</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">Activation</li>
+                      <li className="mt-3">Activation/Upgrade History</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Manage Fund</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">Buy Fund Online</li>
+                      <li className="mt-3">Buy Fund Online History</li>
+                      <li className="mt-3">Received Fund History</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><DescriptionOutlinedIcon className="mr-2"/>Income</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">Direct Income</li>
+                      <li className="mt-3">Roi Income</li>
+                      <li className="mt-3">Roi Level Income</li>
+                      <li className="mt-3">Reward</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><PersonAddAltOutlinedIcon className="mr-2"/> My Team </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">My Referral</li>
+                      <li className="mt-3">Level Details</li>
+                      <li className="mt-3">My Team</li>
+                      <li className="mt-3">Direct leg Bussiness</li>
+                      <li className="mt-3">Bonanza</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Withdrawal</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">Withdrawal</li>
+                      <li className="mt-3">Withdrawal History</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography><AccountBalanceWalletOutlinedIcon className="mr-2"/> Contact support </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul>
+                      <li className="mt-3">contactsupport</li>
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+
+                <div className="py-3"><ExitToAppIcon className="mr-2"/>Logout</div>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+        <Toolbar className="Toolbar_resp">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -143,7 +323,7 @@ export default function MiniDrawer() {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} className="Toolbar_resp" >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -501,7 +681,7 @@ export default function MiniDrawer() {
               </div>
               <div className="container">
                 <div className="row mb_flx">
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="#">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -516,7 +696,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/ActivationHistory">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -533,7 +713,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/myReferral">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -548,7 +728,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/myTeam">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -563,7 +743,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/myTeam">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -578,7 +758,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/DirectIncome">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -593,7 +773,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/roiIncome">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -608,7 +788,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/RoiLevelIncome">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -623,7 +803,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/Rewardincome">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -638,7 +818,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="#">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -653,7 +833,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="/user/WithdrawHistory">
                       <div className="card cardItem">
                         <div className="card-body">
@@ -668,7 +848,7 @@ export default function MiniDrawer() {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-lg-3">
                     <a href="#">
                       <div className="card cardItem">
                         <div className="card-body">
