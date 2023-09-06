@@ -59,6 +59,14 @@
 
 @media screen and (max-width: 800px) {
     .main_drw{
-        /* display: none !important; */
+        display: none !important;
+    }
+    .mb_flx{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .css-zxdg2z{
+        overflow-x: hidden !important;
     }
 }

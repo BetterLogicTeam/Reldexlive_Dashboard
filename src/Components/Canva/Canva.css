@@ -1,3 +1,44 @@
 .canvaMain{
     z-index: 9999 !important;
 }
+
+.navMMain{
+    background-color: #050b1c;
+}
+
+@media (max-width: 991px){ img {
+    height: 40px;
+}}
+
+.navbar-light .navbar-toggler{
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.dropdown-item{
+    color: white !important;
+    padding: 0 !important;
+}
+.dropdown-menu{
+    width: fit-content !important;
+}
+
+.btn-secondary{
+    color: #06021a !important;
+    background-color: #fdd97b !important;
+    border-color: #fff !important;
+}
+
+.offcanvas{
+    background-color: #050b1c !important;
+    color: white !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.css-ahj2mt-MuiTypography-root{
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.btn-close{
+    background-color: white !important;
+}

@@ -500,7 +500,7 @@ export default function MiniDrawer() {
                 </div>
               </div>
               <div className="container">
-                <div className="row">
+                <div className="row mb_flx">
                   <div className="col-md-3">
                     <a href="#">
                       <div className="card cardItem">
@@ -686,7 +686,7 @@ export default function MiniDrawer() {
                 </div>
               </div>
               <div className="container">
-                <div className="row">
+                <div className="row mb_flx">
                   <div className="col-md-12">
                     <div className="prgs">
                       <div id="myProgress">
@@ -704,7 +704,7 @@ export default function MiniDrawer() {
                 </div>
               </div>
               <div className="container">
-                <div className="row">
+                <div className="row mb_flx">
                   <div className="col-md-12">
                     <div className="news_section">
                       <h4 className="userdet">News</h4>

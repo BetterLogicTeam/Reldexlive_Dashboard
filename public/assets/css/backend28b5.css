@@ -2758,8 +2758,8 @@ textarea.form-control {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  /* padding-top: 3.5rem;
+  padding-bottom: 3.5rem; */
   margin-right: 1rem;
   font-size: 0.75rem;
   line-height: inherit;
@@ -14241,7 +14241,7 @@ g[aria-describedby="id-22-description"] {
 
 @media (max-width: 991px) {
   .content-page {
-    padding: 90px 0 0; } }
+    padding: 20px 0 0; } }
 
 @media (max-width: 479px) {
   .welcome-content {
@@ -25301,7 +25301,7 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #0c0d1ad9;
+    background-color: #0c0d1ae8;
     
 }
 
