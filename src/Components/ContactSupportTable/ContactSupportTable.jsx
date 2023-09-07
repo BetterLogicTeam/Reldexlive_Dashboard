@@ -57,14 +57,14 @@ export default function ContactSupportTable() {
         ],
       });
   return (
-    <div>
+    <div className="margin_page_top">
 
 
 <div className="content-page">
   <div className="content">
     <div className="container">
-      <div className="row">
-        <div className="col-sm-12">
+      <div className="row padding_none">
+        <div className="col-sm-12 padding_none">
           <div className="card">
             <div className="card-header d-flex justify-content-between">
               <div className="header-title">
@@ -79,7 +79,7 @@ export default function ContactSupportTable() {
               >
                 {" "}
                 <div className="row mt-12">
-                  <div className="col-md-12 m-3">
+                  <div className="col-md-12  my-3 my-md-3 mx-md-3  ">
                     <label>
                       <strong>Subject</strong>
                     </label>
@@ -90,7 +90,7 @@ export default function ContactSupportTable() {
                       required=""
                     />
                   </div>
-                  <div className="col-md-12 m-3">
+                  <div className="col-md-12   my-3 my-md-3 mx-md-3 ">
                     <label>
                       <strong>Your Query</strong>
                     </label>
@@ -101,7 +101,7 @@ export default function ContactSupportTable() {
                       defaultValue={""}
                     />
                   </div>
-                  <div className="col-md-12 m-3">
+                  <div className="col-md-12  my-3 my-md-3 mx-md-3 ">
                     <input
                       type="submit"
                       className="btn btn-success"

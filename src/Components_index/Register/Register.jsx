@@ -1,4 +1,5 @@
 import React from "react";
+import register from "../../assets/register.png"
 
 const Register = () => {
   return (
@@ -11,7 +12,7 @@ const Register = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-6">
                     <div className="login_item mt_5">
-                      <h2 className="mb-2">Sign Up</h2>
+                      <h2 className="mb-2 ">Sign Up</h2>
                       <p className="text-white">
                         Enter your personal details and start journey with us.
                       </p>
@@ -29,7 +30,7 @@ const Register = () => {
                           <div className="col-lg-6">
                             <div className="floating-label form-group">
                               <input
-                                className="form-control input_reg"
+                                className="form-control "
                                 data-val="true"
                                 data-val-length="The field sponser_id must be a string with a minimum length of 4 and a maximum length of 12."
                                 data-val-length-max={12}
@@ -52,7 +53,7 @@ const Register = () => {
                           <div className="col-lg-6">
                             <div className="floating-label form-group">
                               <input
-                                className="form-control input_reg floating-input"
+                                className="form-control  floating-input"
                                 id="sponsername"
                                 name="sponsername"
                                 placeholder="Sponsor Name"
@@ -70,7 +71,7 @@ const Register = () => {
                           <div className="col-lg-6">
                             <div className="floating-label form-group">
                               <input
-                                className="form-control input_reg"
+                                className="form-control "
                                 data-val="true"
                                 data-val-length="The field User name must be a string with a minimum length of 1 and a maximum length of 50."
                                 data-val-length-max={50}
@@ -94,7 +95,7 @@ const Register = () => {
                           <div className="col-lg-6">
                             <div className="floating-label form-group">
                               <input
-                                className="form-control input_reg input-log-cls"
+                                className="form-control  input-log-cls"
                                 data-val="true"
                                 data-val-email="Invalid Email Address"
                                 data-val-required="Email address is required"
@@ -122,7 +123,7 @@ const Register = () => {
                           <div className="col-lg-6">
                             <div className="floating-label form-group">
                               <input
-                                className="floating-input form-control input_reg"
+                                className="floating-input form-control "
                                 data-val="true"
                                 data-val-required="Mobile number is required"
                                 id="mobile"
@@ -145,7 +146,7 @@ const Register = () => {
                               <input
                                 defaultValue=""
                                 autoComplete="off"
-                                className="floating-input form-control input_reg"
+                                className="floating-input form-control "
                                 data-val="true"
                                 data-val-length="Enter minimum 5 character"
                                 data-val-length-max={50}
@@ -169,7 +170,7 @@ const Register = () => {
                             <div className="floating-label form-group">
                               <input
                                 defaultValue=""
-                                className="floating-input form-control input_reg"
+                                className="floating-input form-control "
                                 data-val="true"
                                 data-val-equalto="The password and confirmation password do not match."
                                 data-val-equalto-other="*.password"
@@ -193,7 +194,7 @@ const Register = () => {
                               <input
                                 defaultValue=""
                                 autoComplete="off"
-                                className="floating-input form-control input_reg"
+                                className="floating-input form-control "
                                 data-val="true"
                                 data-val-length="Enter minimum 5 character"
                                 data-val-length-max={50}
@@ -235,17 +236,17 @@ const Register = () => {
                               />
                               <label className="" htmlFor="customCheck1">
                                  I Agree Your
-                                <a href="#">Terms and Conditions</a>
+                                <a href="#" className="text-white ">Terms and Conditions</a>
                               </label>
                             </div>
                           </div>
                         </div>
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn btn-primary ">
                           Sign Up
                         </button>
                         <p className="mt-3 text-white">
                           Already have an Account 
-                           <a href="/Login" className="text-primary">
+                           <a href="/Login" className="text-white ms-2">
                              Sign In
                           </a>
                         </p>
@@ -258,7 +259,7 @@ const Register = () => {
                       <br />
                       <br />
                       <img
-                        src="assets/LoginAssets/images/register.png"
+                        src={register}
                         className="img-fluid w-80"
                       />
                     </div>

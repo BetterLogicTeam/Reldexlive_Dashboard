@@ -6,8 +6,8 @@ function Contact_Support() {
       <div className="content-page">
         <div className="content">
           <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row padding_none">
+              <div className="col-sm-12 padding_none">
                 <div className="card CBHhdr">
                   <div className="card-header d-flex justify-content-between">
                     <div className="header-title">

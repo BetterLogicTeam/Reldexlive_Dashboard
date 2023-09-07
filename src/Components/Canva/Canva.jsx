@@ -23,7 +23,7 @@ import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-
+import logo_main  from "../Assets/main_logo.png"
 const Canva = () => {
   const [show, setShow] = useState(false);
 
@@ -39,16 +39,16 @@ const Canva = () => {
           <Container fluid>
             <Navbar.Brand href="#">
               <div className="iq-navbar-logo d-flex align-items-center justify-content-between">
-                <a href="index.html" className="header-logo">
+                <a href="/" className="header-logo">
                   <img
-                    src="assets/images/logo.png"
+                    src={logo_main}
                     className="img-fluid rounded-normal light-logo"
                     alt="logo"
                   />
                 </a>
               </div>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            {/* <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} /> */}
             <div class="dropdown">
               <button
                 class="btn btn-secondary dropdown-toggle"
@@ -87,7 +87,7 @@ const Canva = () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-              <div className="py-3"><HomeOutlinedIcon className="mr-2"/>Dashboard</div>
+              <div className="py-3"><HomeOutlinedIcon className="mr-2" />Dashboard</div>
               <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -214,10 +214,10 @@ const Canva = () => {
         </Navbar>
       ))}
 
-      <div className="content-page ">
+      <div className="content-page  ">
         <div className="content">
-          <div className="container">
-            <div className="row">
+          <div className="container padding_none">
+            <div className="row padding_none">
               <div className="col-md-6">
                 <div className="d-block align-items-center referralItem mb2">
                   <div className="form-group">
@@ -242,7 +242,7 @@ const Canva = () => {
             </div>
             <div className="container">
               <div className="row mb_flx">
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="#">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -257,7 +257,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/ActivationHistory">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -274,7 +274,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/myReferral">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -289,7 +289,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/myTeam">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -304,7 +304,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/myTeam">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -319,7 +319,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/DirectIncome">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -334,7 +334,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/roiIncome">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -349,7 +349,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/RoiLevelIncome">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -364,7 +364,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/Rewardincome">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -379,7 +379,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="#">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -394,7 +394,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="/user/WithdrawHistory">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -409,7 +409,7 @@ const Canva = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 padding_none_home">
                   <a href="#">
                     <div className="card cardItem">
                       <div className="card-body">
@@ -435,11 +435,14 @@ const Canva = () => {
                     </div>
                   </div>
                   <div
-                    className="text_color mb_1 text-white"
+                    className="text_color text-white mb_1 text-white"
                     style={{ fontSize: "medium" }}
                   >
-                    You have earned Total 1.25 % (63 BUSD) out of 500 % (5000.00
+                  <p className="text-white">
+                  You have earned Total 1.25 % (63 BUSD) out of 500 % (5000.00
                     BUSD) of total investment (1000.00 BUSD).
+                  </p>
+                   
                   </div>
                 </div>
               </div>

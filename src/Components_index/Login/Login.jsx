@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import login from "../../assets/login.png"
 
 const Login = () => {
   const history = useNavigate();
@@ -25,12 +26,13 @@ const Login = () => {
                             <div className="col-lg-12">
                               <div className="floating-label form-group">
                                 <input
+                                className="new_mb_input_border"
                                   name="__RequestVerificationToken"
                                   type="hidden"
                                   defaultValue="UAA2SQDfv5WmbxgIwYytgcdCPBFwKutkmPoMdkh636PXoAaLEsr8eNFqFhp4aTqFltK8aUL_0oE6qD55J2FS6JEQKcIdUwnzqMIOVYUNihA1"
                                 />
                                 <input
-                                  className="floating-input form-control"
+                                  className="floating-input new_mb_input_border form-control"
                                   data-val="true"
                                   data-val-length="The field uid must be a string with a minimum length of 4 and a maximum length of 100."
                                   data-val-length-max={100}
@@ -42,7 +44,7 @@ const Login = () => {
                                   placeholder="User Id"
                                   style={{
                                     width: "100%",
-                                    border: "solid 1px #b25ddc",
+                                
                                     borderRadius: 5,
                                     padding: 10,
                                     color: "black",
@@ -70,7 +72,7 @@ const Login = () => {
                                   placeholder="Enter Password"
                                   style={{
                                     width: "100%",
-                                    border: "solid 1px #b25ddc",
+                                    
                                     borderRadius: 5,
                                     padding: 10,
                                     color: "black",
@@ -103,7 +105,7 @@ const Login = () => {
                             <div className="col-lg-6 rtl-left">
                               <a
                                 href="ForgotPassword.html"
-                                className="text-primary float-right"
+                                className=" new_text_here  text-white float-right"
                               >
                                 Forgot Password?
                               </a>
@@ -117,7 +119,7 @@ const Login = () => {
                       <div className="loader" />
                       <p className="mt-3 text-white">
                         Create an Account
-                        <a href="Register.html" className="text-primary">
+                        <a href="/Register" className="text-white ms-2">
                           Sign Up
                         </a>
                       </p>
@@ -127,7 +129,7 @@ const Login = () => {
                     <div className="login_item md_none">
                       <br />
                       <img
-                        src="assets/LoginAssets/images/login.png"
+                        src={login}
                         className="img-fluid w-80"
                       />
                     </div>

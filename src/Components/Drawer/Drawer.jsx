@@ -33,6 +33,8 @@ import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
+import {AiOutlineMenu} from 'react-icons/ai'
+import {RxCross2 } from 'react-icons/rx'
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Container, Navbar } from "react-bootstrap";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -127,6 +129,13 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
+
+  const [offopen,setoffOpen]= React.useState(false)
+
+
+
+
+
   const [selectedOption, setSelectedOption] = React.useState(null);
 
   let history = useNavigate();
@@ -141,6 +150,11 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const [show, setShow] = React.useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Box sx={{ display: "flex" }} className="main_drw">
       <CssBaseline />
@@ -152,9 +166,9 @@ export default function MiniDrawer() {
             className="navMMain Offcanvas_res"
           >
             <Container fluid>
-              <Navbar.Brand href="#">
+              <Navbar.Brand className="new_nav_bar_here" href="#">
                 <div className="iq-navbar-logo d-flex align-items-center justify-content-between">
-                  <a href="index.html" className="header-logo">
+                  <a href="/" className="header-logo">
                     <img
                       src="assets/images/logo.png"
                       className="img-fluid rounded-normal light-logo"
@@ -163,9 +177,21 @@ export default function MiniDrawer() {
                   </a>
                 </div>
               </Navbar.Brand>
-              <Navbar.Toggle
-                aria-controls={`offcanvasNavbar-expand-${expand}`}
-              />
+              {/* <Navbar.Toggle
+                aria-controls={`offcanvasNavbar-expand-true`}
+                class="navbar-toggler"
+                aria-label="Toggle navigation"
+              /> */}
+
+               <span className={show?"navbar-toggler":"navbar-toggler collapsed"} onClick={()=>setShow(!show)} >
+              
+                { 
+                  show ? <><RxCross2 className='text-dark fs-1' /> </>:<><AiOutlineMenu className='text-dark fs-1'/></>
+                }
+              
+             
+              </span> 
+ 
               <div class="dropdown">
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -193,19 +219,13 @@ export default function MiniDrawer() {
                   </li>
                 </ul>
               </div>
-              <Navbar.Offcanvas
-                id={`offcanvasNavbar-expand-${expand}`}
-                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-                placement="end"
-              >
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                    Offcanvas
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <div className="py-3 text-white">
-                    <HomeOutlinedIcon className="mr-2 text-white" />
+              <Offcanvas show={show} onHide={handleClose} >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+                  <div className="py-3 text-white"  onClick={() => (handleDrawerClose(), history("/dashboard"),handleClose())}>
+                    <HomeOutlinedIcon className="mr-2 text-white"  />
                     Dashboard
                   </div>
                   <Accordion>
@@ -215,15 +235,29 @@ export default function MiniDrawer() {
                       id="panel1a-header"
                     >
                       <Typography>
-                        <PersonOutlineOutlinedIcon className="mr-2 text-white" /> Profile
+                        <PersonOutlineOutlinedIcon className="mr-2 text-white" />{" "}
+                        Profile
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3 text-white">My Account</li>
-                        <li className="mt-3 text-white">Change Password</li>
-                        <li className="mt-3 text-white">Change Transaction Password</li>
-                        <li className="mt-3 text-white">Ecurrency Details</li>
+                        <li className="mt-3 text-white"  onClick={() => (
+                          handleDrawerClose(), history("/dashboard/My_Account"),handleClose()
+                        )}>My Account</li>
+                        <li className="mt-3 text-white"   onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_Password"),handleClose()
+                        )} >Change Password</li>
+                        <li className="mt-3 text-white"   onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_TransactionPassword"),handleClose()
+                        )}>
+                          Change Transaction Password
+                        </li>
+                        <li className="mt-3 text-white"  onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Ecurrency_Details"),handleClose()
+                        )}>Ecurrency Details</li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -241,8 +275,13 @@ export default function MiniDrawer() {
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">Activation</li>
-                        <li className="mt-3">Activation/Upgrade History</li>
+                        <li className="mt-3"  onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Activation"),handleClose()
+                        )}>Activation</li>
+                        <li className="mt-3"   onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Activation_history"),handleClose()
+                          )}>Activation/Upgrade History</li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -260,9 +299,33 @@ export default function MiniDrawer() {
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">Buy Fund Online</li>
-                        <li className="mt-3">Buy Fund Online History</li>
-                        <li className="mt-3">Received Fund History</li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/BuyOnline_Fund"),handleClose()
+                          )}
+                        >
+                          Buy Fund Online
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/BuyFundOnlineHistory"),handleClose()
+                          )}
+                        >
+                          Buy Fund Online History
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/ReceivedFundHistory"),handleClose()
+                          )}
+                        >
+                          Received Fund History
+                        </li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -280,10 +343,41 @@ export default function MiniDrawer() {
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">Direct Income</li>
-                        <li className="mt-3">Roi Income</li>
-                        <li className="mt-3">Roi Level Income</li>
-                        <li className="mt-3">Reward</li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/DirectIncome"),handleClose()
+                          )}
+                        >
+                          Direct Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Roi_Income"),handleClose()
+                          )}
+                        >
+                          Roi Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/RoiLevelIncome"),handleClose()
+                          )}
+                        >
+                          Roi Level Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/Reward"),handleClose()
+                          )}
+                        >
+                          Reward
+                        </li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -295,16 +389,55 @@ export default function MiniDrawer() {
                       id="panel1a-header"
                     >
                       <Typography>
-                        <PersonAddAltOutlinedIcon className="mr-2 text-white" /> My Team{" "}
+                        <PersonAddAltOutlinedIcon className="mr-2 text-white" />{" "}
+                        My Team{" "}
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">My Referral</li>
-                        <li className="mt-3">Level Details</li>
-                        <li className="mt-3">My Team</li>
-                        <li className="mt-3">Direct leg Bussiness</li>
-                        <li className="mt-3">Bonanza</li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/MyReferral"),handleClose()
+                          )}
+                        >
+                          My Referral
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/LevelDetails"),handleClose()
+                          )}
+                        >
+                          Level Details
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/MyTeam"),handleClose()
+                          )}
+                        >
+                          My Team
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/DirectlegBussiness"),handleClose()
+                          )}
+                        >
+                          Direct leg Bussiness
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/Bonanza"),handleClose()
+                          )}
+                        >
+                          Bonanza
+                        </li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -322,8 +455,24 @@ export default function MiniDrawer() {
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">Withdrawal</li>
-                        <li className="mt-3">Withdrawal History</li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Withdrawal_form"),handleClose()
+                          )}
+                        >
+                          Withdrawal
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/WithdrawalHistory"),handleClose()
+                          )}
+                        >
+                          Withdrawal History
+                        </li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -341,7 +490,15 @@ export default function MiniDrawer() {
                     </AccordionSummary>
                     <AccordionDetails>
                       <ul>
-                        <li className="mt-3">contactsupport</li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/ContactSupportTable"),handleClose()
+                          )}
+                        >
+                          contactsupport
+                        </li>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -351,7 +508,302 @@ export default function MiniDrawer() {
                     Logout
                   </div>
                 </Offcanvas.Body>
-              </Navbar.Offcanvas>
+      </Offcanvas>
+
+              {/* <Offcanvas 
+                how={show} onHide={handleClose} 
+              >
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-true`}>
+                    Offcanvas
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <div className="py-3 text-white"  onClick={() => (handleDrawerClose(), history("/dashboard"))}>
+                    <HomeOutlinedIcon className="mr-2 text-white"  />
+                    Dashboard
+                  </div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <PersonOutlineOutlinedIcon className="mr-2 text-white" />{" "}
+                        Profile
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3 text-white"  onClick={() => (
+                          handleDrawerClose(), history("/dashboard/My_Account")
+                        )}>My Account</li>
+                        <li className="mt-3 text-white"   onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_Password")
+                        )} >Change Password</li>
+                        <li className="mt-3 text-white"   onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_TransactionPassword")
+                        )}>
+                          Change Transaction Password
+                        </li>
+                        <li className="mt-3 text-white"  onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Ecurrency_Details")
+                        )}>Ecurrency Details</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Activation
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li className="mt-3"  onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Activation")
+                        )}>Activation</li>
+                        <li className="mt-3"   onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Activation_history")
+                          )}>Activation/Upgrade History</li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Manage Fund
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/BuyOnline_Fund")
+                          )}
+                        >
+                          Buy Fund Online
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/BuyFundOnlineHistory")
+                          )}
+                        >
+                          Buy Fund Online History
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/ReceivedFundHistory")
+                          )}
+                        >
+                          Received Fund History
+                        </li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <DescriptionOutlinedIcon className="mr-2 text-white" />
+                        Income
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/DirectIncome")
+                          )}
+                        >
+                          Direct Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Roi_Income")
+                          )}
+                        >
+                          Roi Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/RoiLevelIncome")
+                          )}
+                        >
+                          Roi Level Income
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/Reward")
+                          )}
+                        >
+                          Reward
+                        </li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <PersonAddAltOutlinedIcon className="mr-2 text-white" />{" "}
+                        My Team{" "}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/MyReferral")
+                          )}
+                        >
+                          My Referral
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/LevelDetails")
+                          )}
+                        >
+                          Level Details
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/MyTeam")
+                          )}
+                        >
+                          My Team
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/DirectlegBussiness")
+                          )}
+                        >
+                          Direct leg Bussiness
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(), history("/dashboard/Bonanza")
+                          )}
+                        >
+                          Bonanza
+                        </li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Withdrawal
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/Withdrawal_form")
+                          )}
+                        >
+                          Withdrawal
+                        </li>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/WithdrawalHistory")
+                          )}
+                        >
+                          Withdrawal History
+                        </li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>
+                        <AccountBalanceWalletOutlinedIcon className="mr-2 text-white" />{" "}
+                        Contact support{" "}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ul>
+                        <li
+                          className="mt-3"
+                          onClick={() => (
+                            handleDrawerClose(),
+                            history("/dashboard/ContactSupportTable")
+                          )}
+                        >
+                          contactsupport
+                        </li>
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <div className="py-3">
+                    <ExitToAppIcon className="mr-2 text-white" />
+                    Logout
+                  </div>
+                </Offcanvas.Body>
+              </Offcanvas> */}
             </Container>
           </Navbar>
         ))}
@@ -410,7 +862,7 @@ export default function MiniDrawer() {
               </ListItemIcon>
               <ListItemText
                 sx={{ opacity: open ? 1 : 0 }}
-                onClick={() => (handleDrawerClose(),history("/dashboard"))}
+                onClick={() => (handleDrawerClose(), history("/dashboard"))}
               >
                 Dashboard
               </ListItemText>
@@ -447,25 +899,36 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/My_Account"))}
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/My_Account")
+                        )}
                       >
                         My Account
                       </li>
                       <li
                         className="mt-3"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/Change_Password"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_Password")
+                        )}
                       >
                         Change Password
                       </li>
                       <li
                         className="mt-3"
-                        onClick={() =>(handleDrawerClose(), history("/dashboard/Change_TransactionPassword"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Change_TransactionPassword")
+                        )}
                       >
                         Change Transaction Password
                       </li>
                       <li
                         className="mt-3"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/Ecurrency_Details"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Ecurrency_Details")
+                        )}
                       >
                         Ecurrency Details
                       </li>
@@ -506,13 +969,18 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3 text-white "
-                        onClick={() => (handleDrawerClose(),history("/dashboard/Activation"))}
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Activation")
+                        )}
                       >
                         Activation
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() =>(handleDrawerClose(), history("/dashboard/Activation_history"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Activation_history")
+                        )}
                       >
                         Activation/Upgrade History
                       </li>
@@ -553,19 +1021,28 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/BuyOnline_Fund"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/BuyOnline_Fund")
+                        )}
                       >
                         Buy Fund Online
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/BuyFundOnlineHistory"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/BuyFundOnlineHistory")
+                        )}
                       >
                         Buy Fund Online History
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/ReceivedFundHistory"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/ReceivedFundHistory")
+                        )}
                       >
                         Received Fund History
                       </li>
@@ -606,23 +1083,36 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3 text-white"
-                        onClick={() =>(handleDrawerClose(), history("/dashboard/DirectIncome"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/DirectIncome")
+                        )}
                       >
                         Direct Income
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/Roi_Income"))}
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Roi_Income")
+                        )}
                       >
                         Roi Income
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/RoiLevelIncome"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/RoiLevelIncome")
+                        )}
                       >
                         Roi Level Income
                       </li>
-                      <li className="mt-3 text-white" onClick={() =>(handleDrawerClose(), history("/dashboard/Reward"))}>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Reward")
+                        )}
+                      >
                         Reward
                       </li>
                     </ul>
@@ -662,26 +1152,44 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3 text-white "
-                        onClick={() => (handleDrawerClose(),history("/dashboard/MyReferral"))}
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/MyReferral")
+                        )}
                       >
                         My Referral
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/LevelDetails"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/LevelDetails")
+                        )}
                       >
                         Level Details
                       </li>
-                      <li className="mt-3 text-white" onClick={() => (handleDrawerClose(),history("/dashboard/MyTeam"))}>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/MyTeam")
+                        )}
+                      >
                         My Team
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() =>(handleDrawerClose(), history("/dashboard/DirectlegBussiness"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/DirectlegBussiness")
+                        )}
                       >
                         Direct leg Bussiness
                       </li>
-                      <li className="mt-3 text-white" onClick={() => (handleDrawerClose(),history("/dashboard/Bonanza"))}>
+                      <li
+                        className="mt-3 text-white"
+                        onClick={() => (
+                          handleDrawerClose(), history("/dashboard/Bonanza")
+                        )}
+                      >
                         Bonanza
                       </li>
                     </ul>
@@ -721,13 +1229,19 @@ export default function MiniDrawer() {
                     <ul>
                       <li
                         className="mt-3 text-white"
-                        onClick={() =>(handleDrawerClose(), history("/dashboard/Withdrawal_form"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/Withdrawal_form")
+                        )}
                       >
                         Withdrawal
                       </li>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/WithdrawalHistory"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/WithdrawalHistory")
+                        )}
                       >
                         Withdrawal History
                       </li>
@@ -762,13 +1276,19 @@ export default function MiniDrawer() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography className="text-white"> Contact support </Typography>
+                    <Typography className="text-white">
+                      {" "}
+                      Contact support{" "}
+                    </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ul>
                       <li
                         className="mt-3 text-white"
-                        onClick={() => (handleDrawerClose(),history("/dashboard/ContactSupportTable"))}
+                        onClick={() => (
+                          handleDrawerClose(),
+                          history("/dashboard/ContactSupportTable")
+                        )}
                       >
                         contactsupport
                       </li>
@@ -796,11 +1316,16 @@ export default function MiniDrawer() {
               >
                 <ExitToAppIcon />
               </ListItemIcon>
-              <ListItemText className="text-white" sx={{ opacity: open ? 1 : 0 }}>Logout</ListItemText>
+              <ListItemText
+                className="text-white"
+                sx={{ opacity: open ? 1 : 0 }}
+              >
+                Logout
+              </ListItemText>
             </ListItemButton>
           </ListItem>
         </List>
-        <Divider />           
+        <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />

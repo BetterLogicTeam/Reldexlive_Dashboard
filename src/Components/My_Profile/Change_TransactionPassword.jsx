@@ -2,11 +2,11 @@ import React from 'react'
 
 function Change_TransactionPassword() {
   return (
-    <div>
+    <div className="margin_page_top">
       <div className="content-page">
   <div className="content">
     <div className="container">
-      <div className="row">
+      <div className="row padding_none">
         <div className="col-lg-12">
           <div className="card CBHhdr">
             <div className="card-body p-0">

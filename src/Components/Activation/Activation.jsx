@@ -1,16 +1,17 @@
 import React from "react";
+import activate from "../../assets/activate.png"
 
 function Activation() {
   return (
-    <div>
+    <div className="margin_page_top">
       <div className="content-page">
         <div className="content">
           <div className="container-fluid">
             <div className="col-xl-12">
-              <div className="row">
+              <div className="row padding_none">
                 <div className="col-md-4"></div>
-                <div className="col-md-6">
-                  <div className="modal-dialog" role="document">
+                <div className="col-md-6 padding_none">
+                  <div className="modal-dialog  new_mbl_model_dialog" role="document">
                     <div className="modal-content">
                       <div className="modal-header">
                         <div className="avlbal">
@@ -96,7 +97,7 @@ function Activation() {
                               />
                               <span>BUSD</span>
                             </div>
-                            <div className="numbtn">
+                            <div className="numbtn new_mobileBtn">
                               <button onclick="addactivationValue(50)">
                                 + 50 $
                               </button>
@@ -113,7 +114,7 @@ function Activation() {
                                 + 1000 $
                               </button>
                             </div>
-                            <div className="numbtn">
+                            <div className="numbtn new_mobileBtn">
                               <button onclick="addactivationValue(2500)">
                                 + 2500 $
                               </button>
@@ -170,7 +171,7 @@ function Activation() {
                                   <a href="#" onclick="Upgrade_V1();">
                                     <div className="text-center net_box ">
                                       <img
-                                        src="Assets/images/activate.png"
+                                        src={activate}
                                         className="img-fluid"
                                         width="12%"
                                       />

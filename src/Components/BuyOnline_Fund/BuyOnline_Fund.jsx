@@ -2,11 +2,11 @@ import React from "react";
 
 function BuyOnline_Fund() {
   return (
-    <div>
+    <div className="margin_page_top">
       <div className="content-page">
         <div className="content">
           <div className="container">
-            <div className="row">
+            <div className="row padding_none">
               <div className="col-md-2" />
               <div className="col-md-8 col-xs-12">
                 <div className="panel panel-default">

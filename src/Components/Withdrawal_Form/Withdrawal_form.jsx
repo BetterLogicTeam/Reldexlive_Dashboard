@@ -2,7 +2,7 @@ import React from "react";
 
 function Withdrawal_form() {
   return (
-    <div >
+    <div className="margin_page_top" >
       <div className="Main_Width">
 
       <div className="content-page">
